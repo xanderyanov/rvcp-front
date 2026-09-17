@@ -34,7 +34,7 @@
       content="Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu a plánování až po precizní realizaci na klíč."
     />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image" /> 
 
     <meta name="twitter:title" content="Prémiové rekonstrukce na klíč | RVCP" />
 
@@ -67,5 +67,24 @@
     </noscript>
 
     <script type="module" src="/src/main.js"></script>
+
+    <!-- Google tag (gtag.js) event - delayed navigation helper -->
+    <script>
+      // Helper function to delay opening a URL until a gtag event is sent.
+      // Call it in response to an action that should navigate to a URL.
+      function gtagSendEvent(url) {
+        var callback = function () {
+          if (typeof url === 'string') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion_event_submit_lead_form', {
+          'event_callback': callback,
+          'event_timeout': 2000,
+          // <event_parameters>
+        });
+        return false;
+      }
+    </script>
   </body>
 </html>
