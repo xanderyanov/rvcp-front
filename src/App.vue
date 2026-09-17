@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { nextTick, ref } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayout } from "./composables/useLayout";
 
@@ -94,6 +94,12 @@ const openForm = () => {
   // alert(1);
   isFormOpen.value = true;
 };
+
+onMounted(() => {
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+  });
+});
 
 const handleLoaderComplete = async () => {
   await nextTick();
